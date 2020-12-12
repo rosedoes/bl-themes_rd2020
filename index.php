@@ -37,9 +37,9 @@
 		<?php require '../lib/nav.php'; ?>
 
 		<nav>
-			<p class="d-inline">Blog categories:</p>
+			<p class="d-inline">Blog categories: </p>
+			<a href="https://darlingrosette.com/blog/category/roundups">roundups</a> /
 			<a href="https://darlingrosette.com/blog/category/content-write-ups">content write-ups</a> /
-			<a href="https://darlingrosette.com/blog/category/roundups">content roundups</a> /
 			<a href="https://darlingrosette.com/blog/category/learning-rose">learning rose</a>
 		</nav>
 
