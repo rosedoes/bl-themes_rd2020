@@ -41,15 +41,30 @@
 
 		<!-- Display tags -->
 		<ul class="list-inline text-center">
-			<p class="d-inline">blog tags </p>
+			<p class="d-inline sr-only">blog tags / </p>
 			<?php
+			// Tag cloud config
+			// Increasing will make words bigger;
+			// Decreasing will do reverse
+			$factor = 0.1;
+
+			// Smallest font size possible
+			$starting_font_size = 10;
+
 			// Create array with all tags
 			$tags = getTags();
-			echo '/ ';
+			$max_count = count($tags); // Total number of tags
 
 			// Iterate through tags
 			foreach ($tags as $tag) {
-				echo '<li class="list-inline-item"><a class="" href="'.$tag->permalink().'" rel="'.count($tag->pages()).'">'.$tag->name().'</a></li>';
+				$x = round((count($tag->pages()) * 100) / $max_count) * $factor;
+				$font_size = $starting_font_size + $x.'px';
+				echo '<li style="font-size:'.$font_size.';" class="list-inline-item">';
+				if ($tag->key()==$url->slug()) {
+					echo '<a class="active-tag" href="'.$tag->permalink().'">'.$tag->name().'</a></li>';
+				} else {
+					echo '<a href="'.$tag->permalink().'">'.$tag->name().'</a></li>';
+				}
 			}
 			?>
 		</ul>
@@ -64,11 +79,9 @@
 		?>
 	</div>
 
-	<footer class="navbar navbar-expand-sm navbar-light bg-light py-4 mt-md-5 pt-md-5 border-top">
-		<div class="container d-block">
-			<?php require '../lib/nav.php'; ?>
-		</div>
-	</footer>
+	<div class="container d-block navbar py-4 mt-md-5 pt-md-5">
+		<?php require '../lib/nav.php'; ?>
+	</div>
 
 	<!-- Include Jquery file from Bludit Core -->
 	<?php echo Theme::jquery(); ?>
