@@ -1,5 +1,5 @@
 <!-- Section -->
-<section class="card-columns content">
+<section class="card-columns">
   <?php foreach ($content as $page): ?>
     <article class="page card">
       <?php Theme::plugins('pageBegin') ?>
