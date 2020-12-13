@@ -34,21 +34,33 @@
 	<div class="container">
 		<h2 class="text-center"><?php echo $site->slogan() ?></h2>
 
+		<!-- Display global navigation -->
 		<?php require '../lib/nav.php'; ?>
 
-		<nav>
-			<p class="d-inline">Blog categories: </p>
-			<a href="https://darlingrosette.com/blog/category/roundups">roundups</a> /
-			<a href="https://darlingrosette.com/blog/category/content-write-ups">content write-ups</a> /
-			<a href="https://darlingrosette.com/blog/category/learning-rose">learning rose</a>
-		</nav>
+		<hr class="w-50" />
 
-		<?php
-			if ($WHERE_AM_I=='page') {
-				include(THEME_DIR_PHP.'page.php');
-			} else {
-				include(THEME_DIR_PHP.'home.php');
+		<!-- Display tags -->
+		<ul class="list-inline text-center">
+			<p class="d-inline">blog tags </p>
+			<?php
+			// Create array with all tags
+			$tags = getTags();
+			echo '/ ';
+
+			// Iterate through tags
+			foreach ($tags as $tag) {
+				echo '<li class="list-inline-item"><a class="" href="'.$tag->permalink().'" rel="'.count($tag->pages()).'">'.$tag->name().'</a></li>';
 			}
+			?>
+		</ul>
+
+		<!-- Select php template depending on page type -->
+		<?php
+		if ($WHERE_AM_I=='page') {
+			include(THEME_DIR_PHP.'page.php');
+		} else {
+			include(THEME_DIR_PHP.'home.php');
+		}
 		?>
 	</div>
 
