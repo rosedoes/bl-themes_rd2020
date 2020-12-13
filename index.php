@@ -6,36 +6,30 @@
 	<meta name="generator" content="DarlingRosette">
 	<link rel="canonical" href="https://darlingrosette.com" />
 
-	<!-- Dynamic title tag -->
-	<?php echo Theme::metaTagTitle(); ?>
+	<?php echo Theme::metaTagTitle(); # Dynamic title tag ?>
 
-	<!-- Dynamic description tag -->
-	<?php echo Theme::metaTagDescription(); ?>
+	<?php echo Theme::metaTagDescription(); # Dynamic description tag ?>
 
 	<!-- Favicon -->
 	<link rel="icon" href="https://darlingrosette.com/media/favicon.ico" type="image/x-icon">
 
-	<!-- Include CSS Bootstrap file from Bludit Core -->
-	<?php echo Theme::cssBootstrap(); ?>
+	<?php echo Theme::cssBootstrap(); # Include CSS Bootstrap file from Bludit Core ?>
 
 	<!-- rd2020 custom CSS -->
 	<link href="https://darlingrosette.com/main.css" rel="stylesheet" type="text/css" />
 
-	<!-- Load Bludit Plugins: Site head -->
-	<?php Theme::plugins('siteHead'); ?>
+	<?php Theme::plugins('siteHead'); # Load Bludit Plugins: Site head ?>
 </head>
 
 <body>
 	<div class="strip"></div>
 
-	<!-- Load Bludit Plugins: Site Body Begin -->
-	<?php Theme::plugins('siteBodyBegin'); ?>
+	<?php Theme::plugins('siteBodyBegin'); # Load Bludit Plugins: Site Body Begin ?>
 
 	<div class="container">
 		<h2 class="text-center"><?php echo $site->slogan() ?></h2>
 
-		<!-- Display global navigation -->
-		<?php require '../lib/nav.php'; ?>
+		<?php require '../lib/nav.php'; # Display global navigation ?>
 
 		<hr class="w-50" />
 
@@ -69,8 +63,7 @@
 			?>
 		</ul>
 
-		<!-- Select php template depending on page type -->
-		<?php
+		<?php # Select php template depending on page type
 		if ($WHERE_AM_I=='page') {
 			include(THEME_DIR_PHP.'page.php');
 		} else {
@@ -83,13 +76,10 @@
 		<?php require '../lib/nav.php'; ?>
 	</div>
 
-	<!-- Include Jquery file from Bludit Core -->
-	<?php echo Theme::jquery(); ?>
+	<?php echo Theme::jquery(); # Include Jquery file from Bludit Core ?>
 
-	<!-- Include javascript Bootstrap file from Bludit Core -->
-	<?php echo Theme::jsBootstrap(); ?>
+	<?php echo Theme::jsBootstrap(); # Include javascript Bootstrap file from Bludit Core ?>
 
-	<!-- Load Bludit Plugins: Site Body End -->
-	<?php Theme::plugins('siteBodyEnd'); ?>
+	<?php Theme::plugins('siteBodyEnd'); # Load Bludit Plugins: Site Body End ?>
 </body>
 </html>
