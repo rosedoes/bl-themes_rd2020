@@ -1,4 +1,5 @@
 <!-- Section -->
+<!-- Display all posts as Bootstrap cards -->
 <section class="card-columns">
   <?php foreach ($content as $page): ?>
     <article class="page card">

@@ -1,4 +1,5 @@
 <!-- Section -->
+<!-- Display content of selected post -->
 <section class="clearfix">
 	<?php Theme::plugins('pageBegin') ?>
 	<header>
